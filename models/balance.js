@@ -14,8 +14,18 @@ module.exports = (sequelize, DataTypes) => {
   }
   Balance.init(
     {
-      balance: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
+      balance: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "userId required!" },
+          notEmpty: { msg: "userId required!" },
+        },
+      },
     },
     {
       sequelize,

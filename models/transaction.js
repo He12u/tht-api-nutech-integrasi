@@ -15,12 +15,54 @@ module.exports = (sequelize, DataTypes) => {
   }
   Transaction.init(
     {
-      invoice_number: DataTypes.STRING,
-      transaction_type: DataTypes.STRING,
-      description: DataTypes.STRING,
-      total_amount: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
-      serviceId: DataTypes.INTEGER,
+      invoice_number: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "invoice_number required!" },
+          notEmpty: { msg: "invoice_number required!" },
+        },
+      },
+      transaction_type: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "transaction_type required!" },
+          notEmpty: { msg: "transaction_type required!" },
+        },
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "description required!" },
+          notEmpty: { msg: "description required!" },
+        },
+      },
+      total_amount: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "total_amount required!" },
+          notEmpty: { msg: "total_amount required!" },
+        },
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "userId required!" },
+          notEmpty: { msg: "userId required!" },
+        },
+      },
+      serviceId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "serviceId required!" },
+          notEmpty: { msg: "serviceId required!" },
+        },
+      },
     },
     {
       sequelize,

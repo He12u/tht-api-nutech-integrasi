@@ -1,0 +1,16 @@
+[
+  {
+    "email": "welcome1@nutech-integrasi.com",
+    "first_name": "welcome",
+    "last_name": "satu",
+    "password": "welcome1",
+    "profile_image": "https://minio.nutech-integrasi.app/take-home-test/null"
+  },
+  {
+    "email": "welcome2@nutech-integrasi.com",
+    "first_name": "welcome",
+    "last_name": "dua",
+    "password": "welcome2",
+    "profile_image": "https://minio.nutech-integrasi.app/take-home-test/null"
+  }
+]
