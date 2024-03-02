@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
+
 const errorHandler = require("../middlewares/errorHandler");
-const membershipController = require("../controllers/membershipController");
 const authentication = require("../middlewares/authentication");
+
+const membershipController = require("../controllers/membershipController");
+const informationController = require("../controllers/informationController");
+const transactionController = require("../controllers/transactionController");
 
 const multer = require("multer");
 const storage = multer.memoryStorage();
@@ -21,6 +25,9 @@ router.put(
   upload.single("profile_image"),
   membershipController.profileImage
 );
+router.get("/banner", informationController.getBanner);
+router.get("/services", informationController.getServices);
+router.get("/balance", transactionController.getBalance);
 
 router.use(errorHandler);
 
