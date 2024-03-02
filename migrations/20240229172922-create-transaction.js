@@ -30,15 +30,6 @@ module.exports = {
         onUpdate: "cascade",
         onDelete: "cascade",
       },
-      serviceId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Services",
-          key: "id",
-        },
-        onUpdate: "cascade",
-        onDelete: "cascade",
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

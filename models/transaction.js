@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // Transaction.belongsTo(models.Service, { foreignKey: "serviceId" });
       Transaction.belongsTo(models.User, { foreignKey: "userId" });
-      Transaction.belongsTo(models.Service, { foreignKey: "serviceId" });
     }
   }
   Transaction.init(
@@ -53,14 +53,6 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: { msg: "userId required!" },
           notEmpty: { msg: "userId required!" },
-        },
-      },
-      serviceId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          notNull: { msg: "serviceId required!" },
-          notEmpty: { msg: "serviceId required!" },
         },
       },
     },

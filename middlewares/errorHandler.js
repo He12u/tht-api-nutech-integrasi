@@ -48,6 +48,25 @@ const errorHandler = async (error, req, res, next) => {
       message: "Format Image tidak sesuai",
       data: null,
     });
+  } else if (error.name === "Invalid top_up_amount!") {
+    res.status(400).json({
+      status: 102,
+      message:
+        "Parameter amount hanya boleh angka dan tidak boleh lebih kecil dari 0",
+      data: null,
+    });
+  } else if (error.name === "Invalid service_code!") {
+    res.status(400).json({
+      status: 102,
+      message: "Service ataus Layanan tidak ditemukan",
+      data: null,
+    });
+  } else if (error.name === "Minumum balance!") {
+    res.status(400).json({
+      status: 102,
+      message: "Saldo tidak mencukupi",
+      data: null,
+    });
   } else {
     res.status(500).json({ message: "Internal Server Error" });
   }

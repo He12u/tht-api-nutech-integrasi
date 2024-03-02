@@ -25,9 +25,14 @@ router.put(
   upload.single("profile_image"),
   membershipController.profileImage
 );
+
 router.get("/banner", informationController.getBanner);
 router.get("/services", informationController.getServices);
+
 router.get("/balance", transactionController.getBalance);
+router.post("/topup", transactionController.topup);
+router.post("/transaction", transactionController.transaction);
+router.get("/transaction/history", transactionController.getTransactionHistory);
 
 router.use(errorHandler);
 

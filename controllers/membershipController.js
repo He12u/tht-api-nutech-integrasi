@@ -162,8 +162,6 @@ class membershipController {
         public_id: `${req.file.originalname}-${uuid}`,
       });
 
-      console.log(result);
-
       const findUpdate = await User.update(
         { profile_image: result.secure_url },
         {
