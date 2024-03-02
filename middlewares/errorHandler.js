@@ -5,7 +5,9 @@ const errorHandler = async (error, req, res, next) => {
     error.name === "email required!" ||
     error.name === "first_name required!" ||
     error.name === "last_name required!" ||
-    error.name === "password required!"
+    error.name === "password required!" ||
+    error.name === "profile_image required!" ||
+    error.name === "service_code required!"
   ) {
     res.status(400).json({
       status: 102,

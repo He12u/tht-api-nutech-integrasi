@@ -119,6 +119,14 @@ class membershipController {
       const { email } = req.user;
       const { first_name, last_name } = req.body;
 
+      if (!first_name) {
+        throw { name: "first_name required!" };
+      }
+
+      if (!last_name) {
+        throw { name: "last_name required!" };
+      }
+
       let findUpdate = await User.update(
         { first_name, last_name },
         {
@@ -146,8 +154,12 @@ class membershipController {
 
   static async profileImage(req, res, next) {
     try {
-      // console.log(req.file);
+      // console.log(req.file, "<<<<<<<<<<< INI REQ FILE");
       const { email } = req.user;
+
+      if (!req.file) {
+        throw { name: "profile_image required!" };
+      }
 
       if (
         req.file.mimetype !== "image/jpeg" &&

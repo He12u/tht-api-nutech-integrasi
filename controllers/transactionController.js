@@ -151,6 +151,10 @@ class transactionController {
       const { email } = req.user;
       const { service_code } = req.body;
 
+      if (!service_code) {
+        throw { name: "service_code required!" };
+      }
+
       const findService = await Service.findOne({
         where: {
           service_code,
