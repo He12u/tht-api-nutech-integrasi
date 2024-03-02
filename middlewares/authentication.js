@@ -23,11 +23,15 @@ const authentication = async (req, res, next) => {
       throw { name: "Token Unauthorized" };
     }
 
-    req.user = {
-      email: findUser.email,
-    };
+    if (Math.floor(Date.now() / 1000) <= verified.expiration) {
+      req.user = {
+        email: findUser.email,
+      };
 
-    next();
+      next();
+    } else {
+      throw { name: "Token Unauthorized" };
+    }
   } catch (error) {
     next(error);
   }

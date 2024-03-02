@@ -74,6 +74,7 @@ class membershipController {
 
       const access_token = createToken({
         email: findUser.email,
+        expiration: Math.floor(Date.now() / 1000) + 12 * 60 * 60,
       });
 
       res.status(200).json({
