@@ -241,7 +241,16 @@ class transactionController {
       const { email } = req.user;
       let { offset, limit } = req.query;
 
+      const findUser = await User.findOne({
+        where: {
+          email,
+        },
+        attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+      });
+
       let queryOption = {};
+
+      queryOption.where = { userId: findUser.id };
 
       queryOption.order = [["createdAt", "DESC"]];
       if (limit) {
